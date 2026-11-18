@@ -1,387 +1,747 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MODERN MARKET | Cannabis Market</title>
+<title>MODERN MARKET | Educational Library</title>
+
 <style>
 :root {
-  --black:#090d09; --dark:#111a12; --panel:#142017;
-  --green:#254b30; --lime:#a5c77a; --gold:#c5a45b;
-  --white:#f4f4ed; --gray:#a9b0a7;
+  --black:#090d09;
+  --dark:#111a12;
+  --panel:#142017;
+  --lime:#a5c77a;
+  --gold:#c5a45b;
+  --white:#f4f4ed;
+  --gray:#a9b0a7;
 }
-* { box-sizing:border-box; margin:0; padding:0; }
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
 html { scroll-behavior:smooth; }
-body { background:var(--black); color:var(--white); font-family:Arial,sans-serif; }
+
+body {
+  background:var(--black);
+  color:var(--white);
+  font-family:Arial,sans-serif;
+}
+
 header {
-  position:sticky; top:0; z-index:10; background:#080c08;
-  border-bottom:1px solid #28372a; padding:20px 7%;
-  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px;
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#080c08;
+  border-bottom:1px solid #28372a;
+  padding:20px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:18px;
 }
-.logo { font-size:27px; font-weight:900; letter-spacing:3px; color:var(--lime); }
+
+.logo {
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:3px;
+  color:var(--lime);
+}
+
 .logo span { color:var(--gold); }
-nav { display:flex; gap:22px; flex-wrap:wrap; }
-nav a { color:white; text-decoration:none; font-size:12px; text-transform:uppercase; letter-spacing:1px; }
+
+nav {
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+}
+
+nav a {
+  color:white;
+  text-decoration:none;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
 nav a:hover { color:var(--lime); }
+
 .hero {
-  min-height:470px; display:flex; align-items:center; padding:75px 9%;
-  background:radial-gradient(ellipse at 80% 45%, #29432c 0%, #17251a 35%, #080c08 78%);
+  min-height:440px;
+  display:flex;
+  align-items:center;
+  padding:75px 9%;
+  background:radial-gradient(
+    ellipse at 80% 45%,
+    #29432c 0%,
+    #17251a 35%,
+    #080c08 78%
+  );
 }
+
 .hero-content { max-width:680px; }
-.hero-label { color:var(--gold); letter-spacing:4px; font-size:11px; margin-bottom:20px; }
-.hero h1 { font-size:clamp(42px,7vw,78px); line-height:1.02; margin-bottom:22px; }
+
+.hero-label {
+  color:var(--gold);
+  letter-spacing:4px;
+  font-size:11px;
+  margin-bottom:20px;
+}
+
+.hero h1 {
+  font-size:clamp(42px,7vw,78px);
+  line-height:1.02;
+  margin-bottom:22px;
+}
+
 .hero h1 span { color:var(--lime); }
-.hero p { color:#d0d5cd; line-height:1.8; max-width:550px; }
+
+.hero p {
+  color:#d0d5cd;
+  line-height:1.8;
+  max-width:550px;
+}
+
 .hero-button {
-  display:inline-block; background:var(--gold); color:#080c08; text-decoration:none;
-  padding:14px 23px; margin-top:27px; font-size:11px; font-weight:bold; letter-spacing:2px;
+  display:inline-block;
+  background:var(--gold);
+  color:#080c08;
+  text-decoration:none;
+  padding:14px 23px;
+  margin-top:27px;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:2px;
 }
+
 .section { padding:65px 7%; }
+
 .heading { margin-bottom:28px; }
-.heading small { color:var(--gold); letter-spacing:4px; font-size:10px; }
-.heading h2 { font-size:34px; margin-top:10px; }
-.heading p { color:var(--gray); margin-top:10px; line-height:1.7; }
-.category-grid, .info-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+
+.heading small {
+  color:var(--gold);
+  letter-spacing:4px;
+  font-size:10px;
 }
-.category-card, .info-card {
-  background:var(--panel); border:1px solid #304333; padding:25px; min-height:150px;
+
+.heading h2 {
+  font-size:34px;
+  margin-top:10px;
 }
-.category-card h3, .info-card h3 { color:var(--lime); margin-bottom:12px; }
-.category-card p, .info-card p { color:var(--gray); font-size:14px; line-height:1.75; }
-.catalog-controls { display:flex; gap:12px; flex-wrap:wrap; margin:25px 0; }
-.catalog-controls input, .catalog-controls select {
-  background:#172019; border:1px solid #344637; color:white;
-  padding:13px; border-radius:3px; font-size:14px;
+
+.heading p {
+  color:var(--gray);
+  margin-top:10px;
+  line-height:1.7;
 }
-.catalog-controls input { flex:1; min-width:190px; }
-.catalog { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-.item { background:#121b14; border:1px solid #28382b; overflow:hidden; }
-.photo {
-  height:185px; display:flex; align-items:center; justify-content:center;
-  background:linear-gradient(135deg,#263b29,#101710);
-  border-bottom:1px solid #344637; color:var(--lime);
-  letter-spacing:2px; font-size:11px; text-align:center; overflow:hidden;
+
+.category-grid,
+.info-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
-.photo img { width:100%; height:100%; object-fit:cover; display:block; }
-.item-info { padding:18px; }
-.item-tag { color:var(--lime); font-size:10px; text-transform:uppercase; letter-spacing:2px; }
-.item h3 { margin:10px 0; font-size:18px; }
-.item p { color:var(--gray); font-size:13px; line-height:1.65; }
+
+.category-card,
+.info-card {
+  background:var(--panel);
+  border:1px solid #304333;
+  padding:25px;
+  min-height:145px;
+}
+
+.category-card h3,
+.info-card h3 {
+  color:var(--lime);
+  margin-bottom:12px;
+}
+
+.category-card p,
+.info-card p {
+  color:var(--gray);
+  font-size:14px;
+  line-height:1.75;
+}
+
+.catalog-controls {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:25px 0;
+}
+
+.catalog-controls input,
+.catalog-controls select {
+  background:#172019;
+  border:1px solid #344637;
+  color:white;
+  padding:13px;
+  border-radius:3px;
+  font-size:14px;
+}
+
+.catalog-controls input {
+  flex:1;
+  min-width:190px;
+}
+
+.catalog {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.item {
+  background:#121b14;
+  border:1px solid #28382b;
+  padding:22px;
+  min-height:155px;
+  transition:0.2s;
+}
+
+.item:hover {
+  border-color:var(--lime);
+  transform:translateY(-3px);
+}
+
+.item-tag {
+  color:var(--gold);
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+}
+
+.item h3 {
+  color:var(--lime);
+  margin:12px 0;
+  font-size:18px;
+}
+
+.item p {
+  color:var(--gray);
+  font-size:13px;
+  line-height:1.7;
+}
+
+.no-results {
+  color:var(--gray);
+  padding:25px;
+  grid-column:1/-1;
+  text-align:center;
+}
+
 .info-section { background:#142017; }
+
 .notice {
-  border-left:3px solid var(--gold); background:#111a12; color:#c7cec2;
-  padding:17px 20px; margin-top:25px; line-height:1.7; font-size:13px;
+  border-left:3px solid var(--gold);
+  background:#111a12;
+  color:#c7cec2;
+  padding:17px 20px;
+  margin-top:25px;
+  line-height:1.7;
+  font-size:13px;
 }
-footer { background:#070b07; padding:38px 7%; text-align:center; border-top:1px solid #263728; }
-footer h2 { color:var(--lime); letter-spacing:4px; }
-footer p { color:var(--gray); font-size:12px; margin-top:12px; }
-@media(max-width:950px) { .catalog { grid-template-columns:repeat(2,1fr); } }
+
+.countdown-section {
+  background:#111a12;
+  border:1px solid #304333;
+  padding:35px 20px;
+  text-align:center;
+  margin:35px 7%;
+}
+
+.countdown-section h2 {
+  color:var(--lime);
+  letter-spacing:3px;
+  margin-bottom:12px;
+}
+
+.countdown-section p {
+  color:var(--gray);
+  margin-bottom:25px;
+}
+
+.countdown {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:25px;
+  color:var(--gold);
+  font-size:clamp(25px,5vw,42px);
+  font-weight:bold;
+}
+
+.countdown small {
+  display:block;
+  font-size:11px;
+  margin-top:5px;
+}
+
+.contact {
+  background:#111a12;
+  padding:65px 7%;
+  text-align:center;
+  border-top:1px solid #304333;
+}
+
+.contact-inner {
+  max-width:650px;
+  margin:auto;
+}
+
+.contact-card {
+  background:#142017;
+  border:1px solid #304333;
+  padding:25px;
+  margin-top:15px;
+}
+
+.contact-card h3 {
+  color:var(--lime);
+  margin-bottom:12px;
+}
+
+.contact-card p {
+  color:var(--gray);
+  margin-bottom:15px;
+}
+
+.contact-link {
+  display:inline-block;
+  background:var(--gold);
+  color:#090d09;
+  padding:12px 25px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.contact-email {
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:bold;
+}
+
+footer {
+  background:#070b07;
+  padding:38px 7%;
+  text-align:center;
+  border-top:1px solid #263728;
+}
+
+footer h2 {
+  color:var(--lime);
+  letter-spacing:4px;
+}
+
+footer p {
+  color:var(--gray);
+  font-size:12px;
+  margin-top:12px;
+}
+
+@media(max-width:950px) {
+  .catalog { grid-template-columns:repeat(2,1fr); }
+}
+
 @media(max-width:650px) {
   header { flex-direction:column; }
   nav { justify-content:center; gap:14px; }
-  .catalog, .category-grid, .info-grid { grid-template-columns:1fr; }
+  .catalog,
+  .category-grid,
+  .info-grid {
+    grid-template-columns:1fr;
+  }
   .hero { min-height:400px; }
 }
 </style>
 </head>
+
 <body>
- <section id="countdown-section" style="
-    background:#111a12;
-    border:1px solid #304333;
-    padding:35px 20px;
-    text-align:center;
-    margin:30px 7%;
-">
-    <h2 style="color:#a5c77a;letter-spacing:3px;margin-bottom:12px;">
-        THE COUNTDOWN
-    </h2>
 
-    <p style="color:#a9b0a7;margin-bottom:25px;">
-        Time remaining until May 18, 2027. Pre-Order Now!
-    </p>
-
-    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;color:#c5a45b;font-size:clamp(25px,5vw,42px);font-weight:bold;">
-        <div><span id="days">0</span><small style="display:block;font-size:11px;">DAYS</small></div>
-        <div><span id="hours">0</span><small style="display:block;font-size:11px;">HOURS</small></div>
-        <div><span id="minutes">0</span><small style="display:block;font-size:11px;">MINUTES</small></div>
-        <div><span id="seconds">0</span><small style="display:block;font-size:11px;">SECONDS</small></div>
-    </div>
-</section>
-
-<script>
-const targetDate = new Date(2027, 4, 18, 0, 0, 0);
-
-function updateCountdown() {
-    const difference = targetDate - new Date();
-
-    if (difference <= 0) {
-        document.getElementById("countdown-section").textContent =
-            "THE DATE HAS ARRIVED";
-        return;
-    }
-
-    document.getElementById("days").textContent =
-        Math.floor(difference / 86400000);
-
-    document.getElementById("hours").textContent =
-        Math.floor(difference / 3600000) % 24;
-
-    document.getElementById("minutes").textContent =
-        Math.floor(difference / 60000) % 60;
-
-    document.getElementById("seconds").textContent =
-        Math.floor(difference / 1000) % 60;
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
 <header>
-
   <div class="logo">MODERN <span>MARKET.</span></div>
+
   <nav>
     <a href="#home">Home</a>
     <a href="#categories">Categories</a>
-    <a href="#catalog">Catalog</a>
+    <a href="#catalog">Library</a>
     <a href="#learn">Learn</a>
     <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="hero-label">WEED · CULTURE · SMOKE</div>
+    <div class="hero-label">KNOWLEDGE · RESEARCH · EDUCATION</div>
+
     <h1>MODERN <span>MARKET.</span></h1>
-    <p>A better dispensary for you. Daily prices will blow you away!</p>
-    <a class="hero-button" href="#catalog">EXPLORE THE CATALOG</a>
+
+    <p>
+      A modern educational library. Explore topics,
+      discover new information, and expand your knowledge.
+    </p>
+
+    <a class="hero-button" href="#catalog">
+      EXPLORE THE LIBRARY
+    </a>
   </div>
 </section>
 
-<section class="section" id="categories">
-  <div class="heading">
-    <small>EXPLORE THE SUBJECT</small>
-    <h2>Browse Categories</h2>
-    <p>Explore general information about common cannabis-related categories.</p>
-  </div>
-  <div class="category-grid">
-    <article class="category-card"><h3>Flower</h3><p>Learn about the flowering structure of the cannabis plant and its botanical features.</p></article>
-    <article class="category-card"><h3>Concentrates</h3><p>Understand the terminology used to describe cannabis extracts and their different textures.</p></article>
-    <article class="category-card"><h3>Cartridges</h3><p>Learn what the term cartridge refers to and how these devices are categorized.</p></article>
-    <article class="category-card"><h3>Pre-rolls</h3><p>Explore the meaning of the term pre-roll as a general product-format description.</p></article>
-    <article class="category-card"><h3>Cannabinoids</h3><p>Read about compounds such as THC, CBD, CBG, and CBN.</p></article>
-    <article class="category-card"><h3>Terpenes</h3><p>Discover aromatic compounds that occur in many different plants.</p></article>
+<!-- COUNTDOWN -->
+
+<section class="countdown-section" id="countdown-section">
+  <h2>THE COUNTDOWN</h2>
+
+  <p>Time remaining until May 18, 2027</p>
+
+  <div class="countdown">
+    <div>
+      <span id="days">0</span>
+      <small>DAYS</small>
+    </div>
+
+    <div>
+      <span id="hours">0</span>
+      <small>HOURS</small>
+    </div>
+
+    <div>
+      <span id="minutes">0</span>
+      <small>MINUTES</small>
+    </div>
+
+    <div>
+      <span id="seconds">0</span>
+      <small>SECONDS</small>
+    </div>
   </div>
 </section>
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+  <div class="heading">
+    <small>EXPLORE THE SUBJECTS</small>
+    <h2>Browse Categories</h2>
+    <p>Choose a subject to explore.</p>
+  </div>
+
+  <div class="category-grid" id="categoryCards"></div>
+</section>
+
+<!-- EDUCATIONAL LIBRARY -->
 
 <section class="section" id="catalog">
   <div class="heading">
     <small>THE INFORMATION LIBRARY</small>
-    <h2>Explore the Catalog</h2>
-    <p>General educational profiles. No products are listed for sale.</p>
+    <h2>Explore the Library</h2>
+    <p>Search and filter educational topics.</p>
   </div>
+
   <div class="catalog-controls">
-    <input id="search" type="search" placeholder="Search topics..." oninput="renderCatalog()">
-    <select id="categoryFilter" onchange="renderCatalog()">
+    <input
+      id="search"
+      type="search"
+      placeholder="Search topics..."
+    >
+
+    <select id="categoryFilter">
       <option value="All">All Categories</option>
-      <option>Flower</option>
-      <option>Top-Shelf</option>
-      <option>Cartridges</option>
-      <option>Pre-rolls</option>
-      <option>Cannabinoids</option>
-      <option>Terpenes</option>
     </select>
   </div>
+
   <div class="catalog" id="catalogItems"></div>
 </section>
 
+<!-- LEARN -->
+
 <section class="section info-section" id="learn">
   <div class="heading">
-    <small>BOTANICAL INFORMATION</small>
+    <small>EDUCATIONAL RESOURCES</small>
     <h2>Learn the Basics</h2>
-    <p>Introductory information about common terms and plant components.</p>
+    <p>Build your understanding through research and education.</p>
   </div>
+
   <div class="info-grid">
-    <article class="info-card"><h3>Cannabinoids</h3><p>Cannabinoids are chemical compounds found in cannabis. THC and CBD are two commonly discussed examples.</p></article>
-    <article class="info-card"><h3>Terpenes</h3><p>Terpenes are aromatic compounds found throughout nature. They contribute to the scents of many plants.</p></article>
-    <article class="info-card"><h3>Plant Anatomy</h3><p>Cannabis, like other plants, has roots, stems, leaves, flowers, and specialized surface structures.</p></article>
-    <article class="info-card"><h3>Flower</h3><p>The term flower refers to the plant's flowering structures, which contain several distinct botanical parts.</p></article>
-    <article class="info-card"><h3>Extract Terminology</h3><p>Rosin, resin, wax, shatter, and badder are terms used to describe categories or textures of extracts.</p></article>
-    <article class="info-card"><h3>Product Formats</h3><p>Flower, pre-rolls, and cartridges are different format terms used in discussions of cannabis products.</p></article>
+    <article class="info-card">
+      <h3>Research</h3>
+      <p>Learn how to find reliable sources and evaluate information.</p>
+    </article>
+
+    <article class="info-card">
+      <h3>Education</h3>
+      <p>Build knowledge by studying subjects and understanding terminology.</p>
+    </article>
+
+    <article class="info-card">
+      <h3>Science</h3>
+      <p>Explore scientific concepts, observations, and discoveries.</p>
+    </article>
+
+    <article class="info-card">
+      <h3>Technology</h3>
+      <p>Discover how technology changes the modern world.</p>
+    </article>
+
+    <article class="info-card">
+      <h3>Critical Thinking</h3>
+      <p>Learn to compare evidence and distinguish reliable information.</p>
+    </article>
+
+    <article class="info-card">
+      <h3>Knowledge</h3>
+      <p>Explore new subjects and develop a broader understanding.</p>
+    </article>
   </div>
-  <div class="notice">This website is an educational showcase only. It does not provide product availability, prices, purchasing, or consumption instructions.</div>
+
+  <div class="notice">
+    Modern Market is an educational showcase.
+    All listings are informational and are not products offered for sale.
+  </div>
 </section>
+
+<!-- ABOUT -->
 
 <section class="section" id="about">
   <div class="heading">
     <small>ABOUT THE BRAND</small>
     <h2>About Modern Market</h2>
-    <p>Modern Market is presented here as an informational brand concept focused on cannabis terminology, botany, and general education.</p>
+
+    <p>
+      Modern Market is an educational platform designed
+      to organize information into simple, searchable topics.
+    </p>
   </div>
 </section>
 
-<section id="contact" style="
-    background:#111a12;
-    padding:65px 7%;
-    text-align:center;
-    border-top:1px solid #304333;
-">
-    <div style="max-width:650px;margin:auto;">
+<!-- CONTACT -->
 
-        <p style="
-            color:#c5a45b;
-            letter-spacing:4px;
-            font-size:11px;
-            margin-bottom:12px;
-        ">GET IN TOUCH</p>
+<section class="contact" id="contact">
+  <div class="contact-inner">
 
-        <h2 style="
-            color:#a5c77a;
-            font-size:34px;
-            margin-bottom:15px;
-        ">Contact Us</h2>
+    <p style="color:#c5a45b;letter-spacing:4px;font-size:11px;margin-bottom:12px;">
+      GET IN TOUCH
+    </p>
 
-        <p style="
-            color:#a9b0a7;
-            line-height:1.7;
-            margin-bottom:30px;
-        ">
-            Have a question? Find our contact information below.
-        </p>
+    <h2 style="color:#a5c77a;font-size:34px;margin-bottom:15px;">
+      Contact Us
+    </h2>
 
-        <div style="
-            background:#142017;
-            border:1px solid #304333;
-            padding:25px;
-            margin-bottom:15px;
-        ">
-            <h3 style="color:#a5c77a;margin-bottom:10px;">
-                Snapchat
-            </h3>
+    <p style="color:#a9b0a7;line-height:1.7;">
+      Have a question? Find our contact information below.
+    </p>
 
-            <p style="color:#a9b0a7;margin-bottom:15px;">
-                Add us on Snapchat.
-            </p>
+    <div class="contact-card">
+      <h3>Snapchat</h3>
+      <p>Connect with us on Snapchat.</p>
 
-            <a href="https://www.snapchat.com/add/YOURUSERNAME"
-               target="_blank"
-               style="
-                   display:inline-block;
-                   background:#c5a45b;
-                   color:#090d09;
-                   padding:12px 25px;
-                   text-decoration:none;
-                   font-weight:bold;
-                   letter-spacing:1px;
-               ">
-                ADD SNAPCHAT
-            </a>
-        </div>
-
-        <div style="
-            background:#142017;
-            border:1px solid #304333;
-            padding:25px;
-        ">
-            <h3 style="color:#a5c77a;margin-bottom:10px;">
-                Email
-            </h3>
-
-            <p style="color:#a9b0a7;margin-bottom:15px;">
-                Contact us by email.
-            </p>
-
-            <a href="mailto:YOUREMAIL@example.com"
-               style="
-                   color:#c5a45b;
-                   text-decoration:none;
-                   font-weight:bold;
-               ">
-                YOUREMAIL@example.com
-            </a>
-        </div>
-
+      <a
+        class="contact-link"
+        href="https://www.snapchat.com/add/YOURUSERNAME"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ADD SNAPCHAT
+      </a>
     </div>
+
+    <div class="contact-card">
+      <h3>Email</h3>
+      <p>Contact us by email.</p>
+
+      <a class="contact-email" href="mailto:YOUREMAIL@example.com">
+        YOUREMAIL@example.com
+      </a>
+    </div>
+
+  </div>
 </section>
 
 <footer>
   <h2>MODERN MARKET.</h2>
-  <p>Botany · Culture · Education</p>
+  <p>Knowledge · Research · Education</p>
   <p>© 2026 Modern Market. All rights reserved.</p>
-  <p>Educational showcase only. No controlled products are offered for sale.</p>
+  <p>Educational showcase only.</p>
 </footer>
 
 <script>
-/*
-==================================================
-EDITING GUIDE
-==================================================
-1. Change a card title in the "catalogItems" list below.
-2. Change its description in the "description" field.
-3. To add a client photo:
-   - Create a folder named "images" beside this HTML file.
-   - Put the image in that folder.
-   - Set image: "images/your-photo.jpg"
-4. To show the generic placeholder instead, leave image: "".
-5. Do not put personal or identifying information in image filenames.
-==================================================
-*/
+
+// =============================================
+// 1. EDITABLE WEBSITE SETTINGS
+// =============================================
+
+const settings = {
+  countdownDate: new Date(2027, 4, 18, 0, 0, 0),
+  snapchat: "YOURUSERNAME",
+  email: "YOUREMAIL@example.com"
+};
+
+// =============================================
+// 2. EDITABLE CATEGORIES
+// Add, remove, or rename categories here.
+// =============================================
+
+const categories = [
+  {
+    name: "Science",
+    description: "Explore scientific discoveries and concepts."
+  },
+  {
+    name: "Technology",
+    description: "Learn about modern technology and innovation."
+  },
+  {
+    name: "Business",
+    description: "Understand entrepreneurship and economics."
+  },
+  {
+    name: "Education",
+    description: "Explore educational subjects and research."
+  },
+  {
+    name: "General Knowledge",
+    description: "Discover interesting information and ideas."
+  }
+];
+
+// =============================================
+// 3. EDITABLE LISTINGS
+// Change the name, category, and description.
+// Keep each category name identical to a category above.
+// =============================================
 
 const catalogItems = [
-  { name:"1OZ Flower", category:"Flower", description:"75$", image:"" },
-  { name:"1/2OZ Flower", category:"Flower", description:"45$", image:"" },
-  { name:"1/4OZ Flower", category:"Flower", description:"20", image:"" },
-  { name:"1G Flower", category:"Flower", description:"Every 1G is 5$", image:"" },
 
-  { name:"1OZ Top-Shelf Flower", category:"Top-Shelf", description:"90$", image:"" },
-  { name:"1/2OZ Top-Shelf Flower", category:"Top-Shelf", description:"60$", image:"" },
-  { name:"1/4OZ Top-Shelf Flower", category:"Top-Shelf", description:"30$", image:"" },
-  { name:"1G Top-Shelf Flower", category:"Top-Shelf", description:"7$ every 1G", image:"" },
+  { name:"Introduction to Science", category:"Science", description:"An introduction to scientific study and observation." },
 
-  { name:"1G Screw On/Disposable", category:"Cartridges", description:"25$ 1G Screw On/ 35$ Dispo Cart", image:"" },
-  { name:"2G Dispo", category:"Cartridges", description:"45$", image:"" },
+  { name:"The Solar System", category:"Science", description:"Learn about planets, stars, and other celestial objects." },
 
-  { name:"1G Pre-Roll", category:"Pre-rolls", description:"8$ for 1/ 15$ for 2", image:"" },
-  { name:"Blunt Pre-Roll", category:"Pre-rolls", description:"20$ for 1/ 35$ for 2", image:"" },
+  { name:"Human Biology", category:"Science", description:"Explore the basic systems and functions of the human body." },
+
+  { name:"Physics Basics", category:"Science", description:"Understand motion, energy, forces, and matter." },
+
+  { name:"Environmental Science", category:"Science", description:"Study ecosystems and environmental processes." },
+
+  { name:"Artificial Intelligence", category:"Technology", description:"Explore how artificial intelligence systems work." },
+
+  { name:"Computer Programming", category:"Technology", description:"Learn about programming languages and software development." },
+
+  { name:"Cybersecurity Basics", category:"Technology", description:"Understand digital security and online safety." },
+
+  { name:"Computer Hardware", category:"Technology", description:"Explore the components inside modern computers." },
+
+  { name:"Internet Technology", category:"Technology", description:"Learn how networks and websites operate." },
+
+  { name:"Starting a Business", category:"Business", description:"Understand the basic principles of entrepreneurship." },
+
+  { name:"Marketing Basics", category:"Business", description:"Explore branding, advertising, and customer research." },
+
+  { name:"Personal Finance", category:"Business", description:"Learn about budgeting, saving, and financial literacy." },
+
+  { name:"Business Management", category:"Business", description:"Understand organization, planning, and leadership." },
+
+  { name:"Supply and Demand", category:"Business", description:"Explore how markets respond to supply and demand." },
+
+  { name:"Critical Thinking", category:"Education", description:"Learn how to analyze information and evaluate arguments." },
+
+  { name:"Research Methods", category:"Education", description:"Discover how to find and evaluate reliable sources." },
+
+  { name:"Study Techniques", category:"Education", description:"Explore effective approaches to learning and studying." },
+
+  { name:"World Geography", category:"General Knowledge", description:"Explore continents, countries, and geographical features." },
+
+  { name:"World History", category:"General Knowledge", description:"Discover important historical events and developments." }
 
 ];
 
+// =============================================
+// 4. GENERATE CATEGORY CARDS
+// =============================================
+
+function renderCategories() {
+
+  const container = document.getElementById("categoryCards");
+  const filter = document.getElementById("categoryFilter");
+
+  container.innerHTML = "";
+  filter.innerHTML = '<option value="All">All Categories</option>';
+
+  categories.forEach(category => {
+
+    const card = document.createElement("article");
+    card.className = "category-card";
+
+    const title = document.createElement("h3");
+    title.textContent = category.name;
+
+    const description = document.createElement("p");
+    description.textContent = category.description;
+
+    card.append(title, description);
+    container.appendChild(card);
+
+    const option = document.createElement("option");
+    option.value = category.name;
+    option.textContent = category.name;
+
+    filter.appendChild(option);
+
+  });
+
+}
+
+// =============================================
+// 5. GENERATE THE 20 LISTINGS
+// No pictures are used.
+// =============================================
+
 function renderCatalog() {
+
   const container = document.getElementById("catalogItems");
-  const query = document.getElementById("search").value.toLowerCase().trim();
+
+  const query = document.getElementById("search").value
+    .toLowerCase()
+    .trim();
+
   const category = document.getElementById("categoryFilter").value;
 
   const matches = catalogItems.filter(item => {
-    const textMatch = (item.name + " " + item.description).toLowerCase().includes(query);
-    const categoryMatch = category === "All" || item.category === category;
+
+    const searchableText =
+      (item.name + " " + item.description + " " + item.category)
+      .toLowerCase();
+
+    const textMatch = searchableText.includes(query);
+
+    const categoryMatch =
+      category === "All" || item.category === category;
+
     return textMatch && categoryMatch;
+
   });
 
   container.innerHTML = "";
 
-  if (!matches.length) {
-    container.textContent = "No matching topics found.";
+  if (matches.length === 0) {
+
+    const message = document.createElement("div");
+    message.className = "no-results";
+    message.textContent = "No matching topics found.";
+
+    container.appendChild(message);
     return;
+
   }
 
   matches.forEach(item => {
+
     const card = document.createElement("article");
     card.className = "item";
-
-    const photo = document.createElement("div");
-    photo.className = "photo";
-
-    if (item.image) {
-      const img = document.createElement("img");
-      img.src = item.image;
-      img.alt = item.name;
-      img.onerror = () => { photo.textContent = "ADD PHOTO"; };
-      photo.appendChild(img);
-    } else {
-      photo.textContent = "ADD PHOTO";
-    }
-
-    const info = document.createElement("div");
-    info.className = "item-info";
 
     const tag = document.createElement("span");
     tag.className = "item-tag";
@@ -393,13 +753,88 @@ function renderCatalog() {
     const description = document.createElement("p");
     description.textContent = item.description;
 
-    info.append(tag, title, description);
-    card.append(photo, info);
+    card.append(tag, title, description);
     container.appendChild(card);
+
   });
+
 }
 
+// =============================================
+// 6. COUNTDOWN
+// =============================================
+
+function updateCountdown() {
+
+  const difference = settings.countdownDate - new Date();
+
+  if (difference <= 0) {
+
+    document.getElementById("countdown-section").innerHTML =
+      "<h2>THE DATE HAS ARRIVED</h2>";
+
+    return;
+
+  }
+
+  document.getElementById("days").textContent =
+    Math.floor(difference / 86400000);
+
+  document.getElementById("hours").textContent =
+    Math.floor(difference / 3600000) % 24;
+
+  document.getElementById("minutes").textContent =
+    Math.floor(difference / 60000) % 60;
+
+  document.getElementById("seconds").textContent =
+    Math.floor(difference / 1000) % 60;
+
+}
+
+// =============================================
+// 7. CONTACT INFORMATION
+// =============================================
+
+function updateContact() {
+
+  const snapchatLink = document.querySelector(
+    '.contact-card a[href*="snapchat"]'
+  );
+
+  const emailLink = document.querySelector(
+    '.contact-card a[href^="mailto:"]'
+  );
+
+  snapchatLink.href =
+    "https://www.snapchat.com/add/" + settings.snapchat;
+
+  emailLink.href = "mailto:" + settings.email;
+  emailLink.textContent = settings.email;
+
+}
+
+// =============================================
+// 8. START WEBSITE
+// =============================================
+
+document.getElementById("search").addEventListener(
+  "input",
+  renderCatalog
+);
+
+document.getElementById("categoryFilter").addEventListener(
+  "change",
+  renderCatalog
+);
+
+renderCategories();
 renderCatalog();
+updateContact();
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
 </script>
+
 </body>
 </html>
