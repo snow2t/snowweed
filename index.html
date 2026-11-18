@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MODERN MARKET | Cannabis Education</title>
+<style>
+:root {
+  --black:#090d09; --dark:#111a12; --panel:#142017;
+  --green:#254b30; --lime:#a5c77a; --gold:#c5a45b;
+  --white:#f4f4ed; --gray:#a9b0a7;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { background:var(--black); color:var(--white); font-family:Arial,sans-serif; }
+header {
+  position:sticky; top:0; z-index:10; background:#080c08;
+  border-bottom:1px solid #28372a; padding:20px 7%;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px;
+}
+.logo { font-size:27px; font-weight:900; letter-spacing:3px; color:var(--lime); }
+.logo span { color:var(--gold); }
+nav { display:flex; gap:22px; flex-wrap:wrap; }
+nav a { color:white; text-decoration:none; font-size:12px; text-transform:uppercase; letter-spacing:1px; }
+nav a:hover { color:var(--lime); }
+.hero {
+  min-height:470px; display:flex; align-items:center; padding:75px 9%;
+  background:radial-gradient(ellipse at 80% 45%, #29432c 0%, #17251a 35%, #080c08 78%);
+}
+.hero-content { max-width:680px; }
+.hero-label { color:var(--gold); letter-spacing:4px; font-size:11px; margin-bottom:20px; }
+.hero h1 { font-size:clamp(42px,7vw,78px); line-height:1.02; margin-bottom:22px; }
+.hero h1 span { color:var(--lime); }
+.hero p { color:#d0d5cd; line-height:1.8; max-width:550px; }
+.hero-button {
+  display:inline-block; background:var(--gold); color:#080c08; text-decoration:none;
+  padding:14px 23px; margin-top:27px; font-size:11px; font-weight:bold; letter-spacing:2px;
+}
+.section { padding:65px 7%; }
+.heading { margin-bottom:28px; }
+.heading small { color:var(--gold); letter-spacing:4px; font-size:10px; }
+.heading h2 { font-size:34px; margin-top:10px; }
+.heading p { color:var(--gray); margin-top:10px; line-height:1.7; }
+.category-grid, .info-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+}
+.category-card, .info-card {
+  background:var(--panel); border:1px solid #304333; padding:25px; min-height:150px;
+}
+.category-card h3, .info-card h3 { color:var(--lime); margin-bottom:12px; }
+.category-card p, .info-card p { color:var(--gray); font-size:14px; line-height:1.75; }
+.catalog-controls { display:flex; gap:12px; flex-wrap:wrap; margin:25px 0; }
+.catalog-controls input, .catalog-controls select {
+  background:#172019; border:1px solid #344637; color:white;
+  padding:13px; border-radius:3px; font-size:14px;
+}
+.catalog-controls input { flex:1; min-width:190px; }
+.catalog { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.item { background:#121b14; border:1px solid #28382b; overflow:hidden; }
+.photo {
+  height:185px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,#263b29,#101710);
+  border-bottom:1px solid #344637; color:var(--lime);
+  letter-spacing:2px; font-size:11px; text-align:center; overflow:hidden;
+}
+.photo img { width:100%; height:100%; object-fit:cover; display:block; }
+.item-info { padding:18px; }
+.item-tag { color:var(--lime); font-size:10px; text-transform:uppercase; letter-spacing:2px; }
+.item h3 { margin:10px 0; font-size:18px; }
+.item p { color:var(--gray); font-size:13px; line-height:1.65; }
+.info-section { background:#142017; }
+.notice {
+  border-left:3px solid var(--gold); background:#111a12; color:#c7cec2;
+  padding:17px 20px; margin-top:25px; line-height:1.7; font-size:13px;
+}
+footer { background:#070b07; padding:38px 7%; text-align:center; border-top:1px solid #263728; }
+footer h2 { color:var(--lime); letter-spacing:4px; }
+footer p { color:var(--gray); font-size:12px; margin-top:12px; }
+@media(max-width:950px) { .catalog { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:650px) {
+  header { flex-direction:column; }
+  nav { justify-content:center; gap:14px; }
+  .catalog, .category-grid, .info-grid { grid-template-columns:1fr; }
+  .hero { min-height:400px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">MODERN <span>MARKET.</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#catalog">Catalog</a>
+    <a href="#learn">Learn</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-label">BOTANY · CULTURE · EDUCATION</div>
+    <h1>MODERN <span>MARKET.</span></h1>
+    <p>An informational look at cannabis terminology, plant science, product formats, and the compounds found in the plant.</p>
+    <a class="hero-button" href="#catalog">EXPLORE THE CATALOG</a>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="heading">
+    <small>EXPLORE THE SUBJECT</small>
+    <h2>Browse Categories</h2>
+    <p>Explore general information about common cannabis-related categories.</p>
+  </div>
+  <div class="category-grid">
+    <article class="category-card"><h3>Flower</h3><p>Learn about the flowering structure of the cannabis plant and its botanical features.</p></article>
+    <article class="category-card"><h3>Concentrates</h3><p>Understand the terminology used to describe cannabis extracts and their different textures.</p></article>
+    <article class="category-card"><h3>Cartridges</h3><p>Learn what the term cartridge refers to and how these devices are categorized.</p></article>
+    <article class="category-card"><h3>Pre-rolls</h3><p>Explore the meaning of the term pre-roll as a general product-format description.</p></article>
+    <article class="category-card"><h3>Cannabinoids</h3><p>Read about compounds such as THC, CBD, CBG, and CBN.</p></article>
+    <article class="category-card"><h3>Terpenes</h3><p>Discover aromatic compounds that occur in many different plants.</p></article>
+  </div>
+</section>
+
+<section class="section" id="catalog">
+  <div class="heading">
+    <small>THE INFORMATION LIBRARY</small>
+    <h2>Explore the Catalog</h2>
+    <p>General educational profiles. No products are listed for sale.</p>
+  </div>
+  <div class="catalog-controls">
+    <input id="search" type="search" placeholder="Search topics..." oninput="renderCatalog()">
+    <select id="categoryFilter" onchange="renderCatalog()">
+      <option value="All">All Categories</option>
+      <option>Flower</option>
+      <option>Concentrates</option>
+      <option>Cartridges</option>
+      <option>Pre-rolls</option>
+      <option>Cannabinoids</option>
+      <option>Terpenes</option>
+    </select>
+  </div>
+  <div class="catalog" id="catalogItems"></div>
+</section>
+
+<section class="section info-section" id="learn">
+  <div class="heading">
+    <small>BOTANICAL INFORMATION</small>
+    <h2>Learn the Basics</h2>
+    <p>Introductory information about common terms and plant components.</p>
+  </div>
+  <div class="info-grid">
+    <article class="info-card"><h3>Cannabinoids</h3><p>Cannabinoids are chemical compounds found in cannabis. THC and CBD are two commonly discussed examples.</p></article>
+    <article class="info-card"><h3>Terpenes</h3><p>Terpenes are aromatic compounds found throughout nature. They contribute to the scents of many plants.</p></article>
+    <article class="info-card"><h3>Plant Anatomy</h3><p>Cannabis, like other plants, has roots, stems, leaves, flowers, and specialized surface structures.</p></article>
+    <article class="info-card"><h3>Flower</h3><p>The term flower refers to the plant's flowering structures, which contain several distinct botanical parts.</p></article>
+    <article class="info-card"><h3>Extract Terminology</h3><p>Rosin, resin, wax, shatter, and badder are terms used to describe categories or textures of extracts.</p></article>
+    <article class="info-card"><h3>Product Formats</h3><p>Flower, pre-rolls, and cartridges are different format terms used in discussions of cannabis products.</p></article>
+  </div>
+  <div class="notice">This website is an educational showcase only. It does not provide product availability, prices, purchasing, or consumption instructions.</div>
+</section>
+
+<section class="section" id="about">
+  <div class="heading">
+    <small>ABOUT THE BRAND</small>
+    <h2>About Modern Market</h2>
+    <p>Modern Market is presented here as an informational brand concept focused on cannabis terminology, botany, and general education.</p>
+  </div>
+</section>
+
+<footer>
+  <h2>MODERN MARKET.</h2>
+  <p>Botany · Culture · Education</p>
+  <p>© 2026 Modern Market. All rights reserved.</p>
+  <p>Educational showcase only. No controlled products are offered for sale.</p>
+</footer>
+
+<script>
+/*
+==================================================
+EDITING GUIDE
+==================================================
+1. Change a card title in the "catalogItems" list below.
+2. Change its description in the "description" field.
+3. To add a client photo:
+   - Create a folder named "images" beside this HTML file.
+   - Put the image in that folder.
+   - Set image: "images/your-photo.jpg"
+4. To show the generic placeholder instead, leave image: "".
+5. Do not put personal or identifying information in image filenames.
+==================================================
+*/
+
+const catalogItems = [
+  { name:"Cannabis Flower", category:"Flower", description:"An overview of the plant's flowering structures and botanical terminology.", image:"" },
+  { name:"Flower Anatomy", category:"Flower", description:"An introduction to the visible structures found in cannabis flowers.", image:"" },
+  { name:"Trichomes", category:"Flower", description:"Tiny plant structures that occur on cannabis and many other plants.", image:"" },
+  { name:"Plant Leaves", category:"Flower", description:"A look at leaf structure and the role leaves play in plant biology.", image:"" },
+
+  { name:"Rosin", category:"Concentrates", description:"A term used for a category of cannabis extract.", image:"" },
+  { name:"Live Resin", category:"Concentrates", description:"A term used for an extract category associated with aromatic plant compounds.", image:"" },
+  { name:"Wax", category:"Concentrates", description:"A broad term used to describe certain extract textures.", image:"" },
+  { name:"Shatter", category:"Concentrates", description:"A term describing a brittle, glass-like extract texture.", image:"" },
+
+  { name:"Cartridge Format", category:"Cartridges", description:"General terminology for a cartridge-style product format.", image:"" },
+  { name:"Device Components", category:"Cartridges", description:"An educational overview of common cartridge-device terminology.", image:"" },
+
+  { name:"Pre-roll Format", category:"Pre-rolls", description:"A general explanation of the pre-roll product-format term.", image:"" },
+  { name:"Paper and Filter Terms", category:"Pre-rolls", description:"Common vocabulary used when describing paper and filter components.", image:"" },
+
+  { name:"THC", category:"Cannabinoids", description:"Tetrahydrocannabinol is the primary intoxicating cannabinoid commonly discussed in cannabis.", image:"" },
+  { name:"CBD", category:"Cannabinoids", description:"Cannabidiol is a cannabinoid that does not produce the typical THC high.", image:"" },
+  { name:"CBG", category:"Cannabinoids", description:"Cannabigerol is a minor cannabinoid found in cannabis.", image:"" },
+  { name:"CBN", category:"Cannabinoids", description:"Cannabinol is a cannabinoid associated with the breakdown of THC.", image:"" },
+
+  { name:"Myrcene", category:"Terpenes", description:"An aromatic terpene also found in hops and other plants.", image:"" },
+  { name:"Limonene", category:"Terpenes", description:"A citrus-associated aromatic compound found in many plants.", image:"" },
+  { name:"Pinene", category:"Terpenes", description:"A terpene associated with pine-like aromas.", image:"" },
+  { name:"Linalool", category:"Terpenes", description:"An aromatic compound found in plants such as lavender.", image:"" }
+];
+
+function renderCatalog() {
+  const container = document.getElementById("catalogItems");
+  const query = document.getElementById("search").value.toLowerCase().trim();
+  const category = document.getElementById("categoryFilter").value;
+
+  const matches = catalogItems.filter(item => {
+    const textMatch = (item.name + " " + item.description).toLowerCase().includes(query);
+    const categoryMatch = category === "All" || item.category === category;
+    return textMatch && categoryMatch;
+  });
+
+  container.innerHTML = "";
+
+  if (!matches.length) {
+    container.textContent = "No matching topics found.";
+    return;
+  }
+
+  matches.forEach(item => {
+    const card = document.createElement("article");
+    card.className = "item";
+
+    const photo = document.createElement("div");
+    photo.className = "photo";
+
+    if (item.image) {
+      const img = document.createElement("img");
+      img.src = item.image;
+      img.alt = item.name;
+      img.onerror = () => { photo.textContent = "ADD PHOTO"; };
+      photo.appendChild(img);
+    } else {
+      photo.textContent = "ADD PHOTO";
+    }
+
+    const info = document.createElement("div");
+    info.className = "item-info";
+
+    const tag = document.createElement("span");
+    tag.className = "item-tag";
+    tag.textContent = item.category;
+
+    const title = document.createElement("h3");
+    title.textContent = item.name;
+
+    const description = document.createElement("p");
+    description.textContent = item.description;
+
+    info.append(tag, title, description);
+    card.append(photo, info);
+    container.appendChild(card);
+  });
+}
+
+renderCatalog();
+</script>
+</body>
+</html>
