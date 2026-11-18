@@ -86,6 +86,8 @@ footer p { color:var(--gray); font-size:12px; margin-top:12px; }
 </style>
 </head>
 <body>
+
+<header>
   
 <section id="countdown-section" style="
     background:#111a12;
@@ -94,37 +96,19 @@ footer p { color:var(--gray); font-size:12px; margin-top:12px; }
     text-align:center;
     margin:30px 7%;
 ">
-    <h2 style="
-        color:#a5c77a;
-        letter-spacing:3px;
-        margin-bottom:12px;
-    ">THE COUNTDOWN</h2>
+    <h2 style="color:#a5c77a;letter-spacing:3px;margin-bottom:12px;">
+        THE COUNTDOWN
+    </h2>
 
     <p style="color:#a9b0a7;margin-bottom:25px;">
         Time remaining until May 18, 2027
     </p>
 
-    <div id="countdown" style="
-        display:flex;
-        justify-content:center;
-        flex-wrap:wrap;
-        gap:20px;
-        color:#c5a45b;
-        font-size:clamp(25px,5vw,42px);
-        font-weight:bold;
-    ">
-        <div><span id="days">0</span>
-            <small style="display:block;font-size:11px;">DAYS</small>
-        </div>
-        <div><span id="hours">0</span>
-            <small style="display:block;font-size:11px;">HOURS</small>
-        </div>
-        <div><span id="minutes">0</span>
-            <small style="display:block;font-size:11px;">MINUTES</small>
-        </div>
-        <div><span id="seconds">0</span>
-            <small style="display:block;font-size:11px;">SECONDS</small>
-        </div>
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;color:#c5a45b;font-size:clamp(25px,5vw,42px);font-weight:bold;">
+        <div><span id="days">0</span><small style="display:block;font-size:11px;">DAYS</small></div>
+        <div><span id="hours">0</span><small style="display:block;font-size:11px;">HOURS</small></div>
+        <div><span id="minutes">0</span><small style="display:block;font-size:11px;">MINUTES</small></div>
+        <div><span id="seconds">0</span><small style="display:block;font-size:11px;">SECONDS</small></div>
     </div>
 </section>
 
@@ -132,37 +116,31 @@ footer p { color:var(--gray); font-size:12px; margin-top:12px; }
 const targetDate = new Date(2027, 4, 18, 0, 0, 0);
 
 function updateCountdown() {
-    const now = new Date();
-    const difference = targetDate - now;
+    const difference = targetDate - new Date();
 
     if (difference <= 0) {
-        document.getElementById("countdown").textContent =
+        document.getElementById("countdown-section").textContent =
             "THE DATE HAS ARRIVED";
         return;
     }
 
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-        (difference / (1000 * 60 * 60)) % 24
-    );
-    const minutes = Math.floor(
-        (difference / (1000 * 60)) % 60
-    );
-    const seconds = Math.floor(
-        (difference / 1000) % 60
-    );
+    document.getElementById("days").textContent =
+        Math.floor(difference / 86400000);
 
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
+    document.getElementById("hours").textContent =
+        Math.floor(difference / 3600000) % 24;
+
+    document.getElementById("minutes").textContent =
+        Math.floor(difference / 60000) % 60;
+
+    document.getElementById("seconds").textContent =
+        Math.floor(difference / 1000) % 60;
 }
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
 </script>
 
-<header>
   <div class="logo">MODERN <span>MARKET.</span></div>
   <nav>
     <a href="#home">Home</a>
@@ -242,6 +220,90 @@ setInterval(updateCountdown, 1000);
     <h2>About Modern Market</h2>
     <p>Modern Market is presented here as an informational brand concept focused on cannabis terminology, botany, and general education.</p>
   </div>
+</section>
+
+<section id="contact" style="
+    background:#111a12;
+    padding:65px 7%;
+    text-align:center;
+    border-top:1px solid #304333;
+">
+    <div style="max-width:650px;margin:auto;">
+
+        <p style="
+            color:#c5a45b;
+            letter-spacing:4px;
+            font-size:11px;
+            margin-bottom:12px;
+        ">GET IN TOUCH</p>
+
+        <h2 style="
+            color:#a5c77a;
+            font-size:34px;
+            margin-bottom:15px;
+        ">Contact Us</h2>
+
+        <p style="
+            color:#a9b0a7;
+            line-height:1.7;
+            margin-bottom:30px;
+        ">
+            Have a question? Find our contact information below.
+        </p>
+
+        <div style="
+            background:#142017;
+            border:1px solid #304333;
+            padding:25px;
+            margin-bottom:15px;
+        ">
+            <h3 style="color:#a5c77a;margin-bottom:10px;">
+                Snapchat
+            </h3>
+
+            <p style="color:#a9b0a7;margin-bottom:15px;">
+                Add us on Snapchat.
+            </p>
+
+            <a href="https://www.snapchat.com/add/YOURUSERNAME"
+               target="_blank"
+               style="
+                   display:inline-block;
+                   background:#c5a45b;
+                   color:#090d09;
+                   padding:12px 25px;
+                   text-decoration:none;
+                   font-weight:bold;
+                   letter-spacing:1px;
+               ">
+                ADD SNAPCHAT
+            </a>
+        </div>
+
+        <div style="
+            background:#142017;
+            border:1px solid #304333;
+            padding:25px;
+        ">
+            <h3 style="color:#a5c77a;margin-bottom:10px;">
+                Email
+            </h3>
+
+            <p style="color:#a9b0a7;margin-bottom:15px;">
+                Contact us by email.
+            </p>
+
+            <a href="mailto:YOUREMAIL@example.com"
+               style="
+                   color:#c5a45b;
+                   text-decoration:none;
+                   font-weight:bold;
+               ">
+                YOUREMAIL@example.com
+            </a>
+        </div>
+
+    </div>
 </section>
 
 <footer>
@@ -338,8 +400,6 @@ function renderCatalog() {
     card.append(photo, info);
     container.appendChild(card);
   });
-}
-
 renderCatalog();
 </script>
 </body>
