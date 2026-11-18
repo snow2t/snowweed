@@ -88,7 +88,15 @@ footer p { color:var(--gray); font-size:12px; margin-top:12px; }
 <body>
 
 <header>
-  
+  <div class="logo">MODERN <span>MARKET.</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#catalog">Catalog</a>
+    <a href="#learn">Learn</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
 <section id="countdown-section" style="
     background:#111a12;
     border:1px solid #304333;
@@ -140,17 +148,6 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 </script>
-
-  <div class="logo">MODERN <span>MARKET.</span></div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#categories">Categories</a>
-    <a href="#catalog">Catalog</a>
-    <a href="#learn">Learn</a>
-    <a href="#about">About</a>
-  </nav>
-</header>
-
 <section class="hero" id="home">
   <div class="hero-content">
     <div class="hero-label">WEED · CULTURE · SMOKE</div>
@@ -332,12 +329,12 @@ EDITING GUIDE
 const catalogItems = [
   { name:"1OZ Flower", category:"Flower", description:"75$", image:"" },
   { name:"1/2OZ Flower", category:"Flower", description:"45$", image:"" },
-  { name:"1/4OZ Flower", category:"Flower" description:"20", image:"" },
+  { name:"1/4OZ Flower", category:"Flower", description:"20", image:"" },
   { name:"1G Flower", category:"Flower", description:"Every 1G is 5$", image:"" },
 
   { name:"1OZ Top-Shelf Flower", category:"Top-Shelf", description:"90$", image:"" },
   { name:"1/2OZ Top-Shelf Flower", category:"Top-Shelf", description:"60$", image:"" },
-  { name:"1/4OZ Top-Shelf Flower", category:"Top-Shelf", description:"30$, image:"" },
+  { name:"1/4OZ Top-Shelf Flower", category:"Top-Shelf", description:"30$", image:"" },
   { name:"1G Top-Shelf Flower", category:"Top-Shelf", description:"7$ every 1G", image:"" },
 
   { name:"1G Screw On/Disposable", category:"Cartridges", description:"25$ 1G Screw On/ 35$ Dispo Cart", image:"" },
@@ -400,6 +397,8 @@ function renderCatalog() {
     card.append(photo, info);
     container.appendChild(card);
   });
+}
+
 renderCatalog();
 </script>
 </body>
